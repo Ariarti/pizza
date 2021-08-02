@@ -1,0 +1,29 @@
+-- begin PIZZA_CLIENT
+create unique index IDX_PIZZA_CLIENT_UK_EMAIL on PIZZA_CLIENT (EMAIL) where DELETE_TS is null ^
+create unique index IDX_PIZZA_CLIENT_UK_PHONE on PIZZA_CLIENT (PHONE) where DELETE_TS is null ^
+-- end PIZZA_CLIENT
+-- begin PIZZA_PAYMENT
+alter table PIZZA_PAYMENT add constraint FK_PIZZA_PAYMENT_ON_ORDER foreign key (ORDER_ID) references PIZZA_ORDER(ID)^
+create index IDX_PIZZA_PAYMENT_ON_ORDER on PIZZA_PAYMENT (ORDER_ID)^
+-- end PIZZA_PAYMENT
+-- begin PIZZA_INGREDIENT
+alter table PIZZA_INGREDIENT add constraint FK_PIZZA_INGREDIENT_ON_PIZZA foreign key (PIZZA_ID) references PIZZA_PIZZA(ID)^
+alter table PIZZA_INGREDIENT add constraint FK_PIZZA_INGREDIENT_ON_TOPPING foreign key (TOPPING_ID) references PIZZA_TOPPING(ID)^
+create index IDX_PIZZA_INGREDIENT_ON_PIZZA on PIZZA_INGREDIENT (PIZZA_ID)^
+create index IDX_PIZZA_INGREDIENT_ON_TOPPING on PIZZA_INGREDIENT (TOPPING_ID)^
+-- end PIZZA_INGREDIENT
+-- begin PIZZA_DELIVERY
+alter table PIZZA_DELIVERY add constraint FK_PIZZA_DELIVERY_ON_CLIENT foreign key (CLIENT_ID) references PIZZA_CLIENT(ID)^
+create index IDX_PIZZA_DELIVERY_ON_CLIENT on PIZZA_DELIVERY (CLIENT_ID)^
+-- end PIZZA_DELIVERY
+-- begin PIZZA_ITEM
+alter table PIZZA_ITEM add constraint FK_PIZZA_ITEM_ON_ORDER foreign key (ORDER_ID) references PIZZA_ORDER(ID)^
+alter table PIZZA_ITEM add constraint FK_PIZZA_ITEM_ON_PIZZA foreign key (PIZZA_ID) references PIZZA_PIZZA(ID)^
+create index IDX_PIZZA_ITEM_ON_ORDER on PIZZA_ITEM (ORDER_ID)^
+create index IDX_PIZZA_ITEM_ON_PIZZA on PIZZA_ITEM (PIZZA_ID)^
+-- end PIZZA_ITEM
+-- begin PIZZA_ORDER
+alter table PIZZA_ORDER add constraint FK_PIZZA_ORDER_ON_DELIVERY foreign key (DELIVERY_ID) references PIZZA_DELIVERY(ID)^
+create unique index IDX_PIZZA_ORDER_UK_NUMBER_ on PIZZA_ORDER (NUMBER_) where DELETE_TS is null ^
+create index IDX_PIZZA_ORDER_ON_DELIVERY on PIZZA_ORDER (DELIVERY_ID)^
+-- end PIZZA_ORDER

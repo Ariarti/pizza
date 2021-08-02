@@ -1,0 +1,1 @@
+alter table pizza_order_position_ingredient_link rename to PIZZA_ORDER_POSITION_INGREDIENT_LINK__U42048 ;

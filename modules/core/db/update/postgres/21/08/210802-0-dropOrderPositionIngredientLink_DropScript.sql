@@ -1,0 +1,1 @@
+drop table if exists PIZZA_ORDER_POSITION_INGREDIENT_LINK__U42048 cascade ;

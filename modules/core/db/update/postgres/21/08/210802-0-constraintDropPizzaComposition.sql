@@ -1,0 +1,1 @@
+alter table pizza_pizza_pizza_composition_link drop constraint FK_PIZPIZCOM_ON_PIZZA_COMPOSITION ;

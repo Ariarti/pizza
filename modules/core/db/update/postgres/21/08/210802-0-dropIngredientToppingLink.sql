@@ -1,0 +1,1 @@
+alter table pizza_ingredient_topping_link rename to PIZZA_INGREDIENT_TOPPING_LINK__U59362 ;

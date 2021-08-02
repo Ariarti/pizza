@@ -1,0 +1,1 @@
+drop table if exists PIZZA_PIZZA_PIZZA_COMPOSITION_LINK__U84476 cascade ;

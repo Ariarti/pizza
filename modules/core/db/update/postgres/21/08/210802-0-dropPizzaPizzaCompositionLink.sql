@@ -1,0 +1,1 @@
+alter table pizza_pizza_pizza_composition_link rename to PIZZA_PIZZA_PIZZA_COMPOSITION_LINK__U84476 ;

@@ -1,0 +1,1 @@
+alter table pizza_client_address_link rename to PIZZA_CLIENT_ADDRESS_LINK__U15465 ;

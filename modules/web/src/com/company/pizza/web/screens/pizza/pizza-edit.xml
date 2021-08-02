@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://pizzaEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.pizza.web.screens.pizza">
+    <data>
+        <instance id="pizzaDc"
+                  class="com.company.pizza.entity.Pizza"
+                  view="pizza-view">
+            <loader/>
+            <collection id="compositionDc" property="composition"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="pizzaDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <textField id="sizeField" property="size"/>
+                <textField id="priceField" property="price"/>
+                <textField id="calorieField" property="calorie"/>
+                <textArea id="additionalField" property="additional" rows="5"/>
+            </column>
+        </form>
+        <groupBox id="compositionBox" caption="msg://com.company.pizza.entity/Pizza.composition">
+            <table id="compositionTable" dataContainer="compositionDc" width="100%" height="200px">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="topping"/>
+                    <column id="amount"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="compositionTable.create"/>
+                    <button action="compositionTable.edit"/>
+                    <button action="compositionTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

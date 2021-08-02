@@ -1,0 +1,1 @@
+drop table if exists PIZZA_INGREDIENT_PIZZA_LINK__U34517 cascade ;

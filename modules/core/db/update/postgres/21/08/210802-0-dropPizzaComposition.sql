@@ -1,0 +1,1 @@
+alter table pizza_pizza_composition rename to PIZZA_PIZZA_COMPOSITION__U76699 ;
